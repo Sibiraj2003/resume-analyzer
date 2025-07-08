@@ -1,6 +1,7 @@
-from transformers import pipeline
+import spacy
 
-nlp_pipeline = pipeline("ner", model="dslim/bert-base-NER", grouped_entities=True)
+# Load the small English spaCy model
+nlp = spacy.load("en_core_web_sm")
 
 COMMON_SKILLS = {
     "Python", "Django", "SQL", "HTML", "CSS", "HTML & CSS",
@@ -9,19 +10,17 @@ COMMON_SKILLS = {
 }
 
 def extract_skills(text):
-    results = nlp_pipeline(text)
-    raw_tokens = [entity["word"].strip("##") for entity in results]
-
-    # Also scan the full text for known skills
+    doc = nlp(text)
     detected_skills = set()
 
+    for token in doc:
+        for skill in COMMON_SKILLS:
+            if skill.lower() == token.text.lower():
+                detected_skills.add(skill)
+
+    # Check for full text matches (multi-word skills like "Machine Learning")
     for skill in COMMON_SKILLS:
         if skill.lower() in text.lower():
             detected_skills.add(skill)
-
-    # Also add any AI-model-detected tokens that match known skills
-    for token in raw_tokens:
-        if token in COMMON_SKILLS:
-            detected_skills.add(token)
 
     return sorted(detected_skills)
