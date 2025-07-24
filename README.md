@@ -7,7 +7,7 @@ A Django web application that allows users to upload resumes (PDF or DOCX), extr
 ###Resume Upload Page 
 ![Resume Upload](demo1.png)
 
-###GitHub Repository Overview 
+###Final Output page
 ![Final Output](demo2.png)
 
 ---
