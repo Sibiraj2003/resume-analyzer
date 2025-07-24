@@ -2,6 +2,7 @@
 
 A Django web application that allows users to upload resumes (PDF or DOCX), extracts skills using an AI model, and compares them with a provided Job Description (JD). If the resume matches the JD by 60% or more, it is shortlisted and exported to a CSV file.
 
+
 ##Demo Screenshots 
 
 ###Resume Upload Page 
@@ -9,6 +10,8 @@ A Django web application that allows users to upload resumes (PDF or DOCX), extr
 
 ###Final Output page
 ![Final Output](demo2.png)
+=======
+
 
 ---
 
@@ -40,4 +43,8 @@ git clone https://github.com/sibiraj2003/resume-analyzer.git
 cd resume-analyzer
 pip install -r requirements.txt
 python manage.py migrate
+<<<<<<< HEAD
 python manage.py runserver
+=======
+python manage.py runserver
+>>>>>>> 549ff81 (update README before rebase)
