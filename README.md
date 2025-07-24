@@ -1,4 +1,4 @@
-# 🧠 AI Resume Analyzer
+# 🧠 AI Resume Analyzer - LINK: https://ai-resume-analyzer-u76d.onrender.com/
 
 A Django web application that allows users to upload resumes (PDF or DOCX), extracts skills using an AI model, and compares them with a provided Job Description (JD). If the resume matches the JD by 60% or more, it is shortlisted and exported to a CSV file.
 
